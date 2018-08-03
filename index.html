@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" href="neko_new.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<title>にゃん太郎さん</title>
+</head>
+<body>
+	<header class="header section_text">
+		<p class="scroll-story">STORY</p>
+		<p class="scroll-profile">PROFILE</p>
+		<p class="scroll-goods">GOODS</p>
+	</header>
+	<section class="top">
+		<h1><img class="top_img"src="images/neko_top.png" alt="にゃん太郎さん"></h1>
+	</section>
+	<section class="story section_box">
+		<h2 class="section_title">story</h2>
+		<div class="section_text story_text">
+			<p>にゃん太郎さんと仲間たちが繰り広げるほんわかな日常。今日も村はなんだか賑やかそう。にゃん太郎さんとひよみさんの仲良しコンビがいろんなお友達と経験したり、成長をする物語です。</p>
+		</div>
+	</section>
+	<section class="character section_box" id="v-character">
+		<h2 class="section_title">profile</h2>
+		<p class="character_text section_text sp-active">にゃん太郎さんの仲間たちを紹介するよ！<br>横にスライドしてね！</p>
+		<div class="characret-slide sp-active">
+			<div class="sp-character-item" v-for="item in items">
+				<div class="character_column character_card">
+					<img class="character_card_img" :src="item.url">
+					<div class="center_text section_text">
+						<p>{{ item.subname }}</p>
+						<h3 class="section_title center_title characer_title">{{ item.name }}</h3>
+						<div class="center_about">
+							<p>{{ item.about }}</p>
+							<h4 class="section_subtitle">特技</h4>
+							<p>{{ item.skill }}</p>
+							<h4 class="section_subtitle">趣味</h4>
+							<p>{{ item.hobby }}</p>
+							<h4 class="section_subtitle">好きな言葉</h4>
+							<p>{{ item.word }}</p>
+							<p v-if="item.for" class="section_subtitle">にゃん太郎に一言！</p>
+							<p>{{ item.for }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="character_text section_text pc-active">にゃん太郎さんの仲間たちを紹介するよ！<br>サイドのマルをクリックしてね！</p>
+		<div class="characer_content pc-active">
+			<diV class="character_column pc-active">
+				<div class="character_item character_item__left">
+					<img class="character_item_img" src="images/neko_maru.png" alt="" v-on:click='changechar("neko")'>
+				</div>
+				<div class="character_item character_item__right">
+					<img class="character_item_img" src="images/father_maru.png" alt="" v-on:click='changechar("father")'>
+				</div>
+				<div class="character_item character_item__left">
+					<img class="character_item_img" src="images/mother_maru.png" alt="" v-on:click='changechar("mother")'>
+				</div>
+				<div class="character_item character_item__right">
+					<img class="character_item_img" src="images/chinchira_maru.png" alt="" v-on:click='changechar("chinchira")'>
+				</div>
+				<div class="character_item character_item__left">
+					<img class="character_item_img" src="images/kumashi_maru.png" alt="" v-on:click='changechar("kumashi")'>
+				</div>
+			</diV>
+			<div class="character_column character_card">
+				<img class="character_card_img" :src="item.url">
+				<div class="center_text section_text">
+					<p>{{ item.subname }}</p>
+					<h3 class="section_title center_title characer_title">{{ item.name }}</h3>
+					<div class="center_about">
+						<p>{{ item.about }}</p>
+						<h4 class="section_subtitle">特技</h4>
+						<p>{{ item.skill }}</p>
+						<h4 class="section_subtitle">趣味</h4>
+						<p>{{ item.hobby }}</p>
+						<h4 class="section_subtitle">好きな言葉</h4>
+						<p>{{ item.word }}</p>
+						<p v-if="item.for" class="section_subtitle">にゃん太郎に一言！</p>
+						<p>{{ item.for }}</p>
+					</div>
+				</div>
+			</div>
+			<diV class="character_column pc-active">
+				<div class="character_item character_item__right">
+					<img class="character_item_img" src="images/hiyoko_maru.png" alt="" v-on:click='changechar("hiyoko")'>
+				</div>
+				<div class="character_item character_item__left">
+					<img class="character_item_img" src="images/usami_maru.png" alt="" v-on:click='changechar("usami")'>
+				</div>
+				<div class="character_item character_item__right">
+					<img class="character_item_img" src="images/usami_father_maru.png" alt="" v-on:click='changechar("usami_father")'>
+				</div>
+				<div class="character_item character_item__left">
+					<img class="character_item_img" src="images/kerorin_maru.png" alt="" v-on:click='changechar("kerorin")'>
+				</div>
+				<div class="character_item character_item__right">
+					<img class="character_item_img" src="images/risuto_maru.png" alt="" v-on:click='changechar("risuto")'>
+				</div>
+			</diV>
+		</div>
+	</section>
+    <img class="huriru_img" src="images/fril.png">
+	<section class="section_box goods">
+		<h2 class="section_title">goods</h2>
+		<div class="goods">
+            <div class="goods_item"><a href="http://minne.com/items/15140574"><img src="images/goods_01.jpg" alt=""></a></div>
+			<div class="goods_item"><img src="images/goods_02.png" alt=""></div>
+			<div class="goods_item"><img src="images/goods_02.png" alt=""></div>
+			<div class="goods_item"><img src="images/goods_02.png" alt=""></div>
+			<div class="goods_item"><img src="images/goods_02.png" alt=""></div>
+			<div class="goods_item"><img src="images/goods_02.png" alt=""></div>
+		</div>
+	</section>
+	<section class="contact">
+		<img class="contact_img" src="images/neko_contact.png">
+	</section>
+	<footer class="section_box footer">
+		<p>(c)2018umkumk</p>
+	</footer>
+	<script src="js/main.js"></script>
+</body>
+</html>
