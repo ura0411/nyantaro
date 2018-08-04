@@ -71,9 +71,9 @@ img {
 	margin: 24px 0;
 }
 .section_subtitle {
-	font-size: 1.2rem;
+	font-size: 21px;
 	text-align: left;
-	margin: 12px 0;
+	margin: 2px 0;
 }
 .section_text {
 	margin: auto;
@@ -135,7 +135,7 @@ img {
 	text-align: center;
 }
 .character_card_img {
-	width: 60%;
+	width: 90%;
 	margin-bottom: 24px;
 }
 .character_item_img {
@@ -150,6 +150,12 @@ img {
 .center_about{
 	font-size: 13px;
 	text-align: left;
+}
+
+.center_about p{
+    padding-bottom: 30px;
+    font-size: 14px;
+    line-height: 23px;
 }
 
 .goods {
@@ -191,7 +197,7 @@ img {
 	}
 	.section_title {
 		font-size : 24px;
-		margin: 12px 0;
+		margin: 40px 0;
 	}
 	.section_text {
 		margin: auto;
